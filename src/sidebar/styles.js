@@ -5,7 +5,7 @@ const styles = theme => ({
     position: "absolute",
     left: "0",
     width: "300px",
-    boxShadow: "0px 0px 2px black"
+    boxShadow: "0px 0px 2px #333"
   },
   newChatBtn: {
     borderRadius: "0px"
@@ -19,12 +19,25 @@ const styles = theme => ({
   newNoteBtn: {
     width: "100%",
     height: "35px",
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid #333",
     borderRadius: "0px",
-    backgroundColor: "#29487d",
-    color: "white",
+    backgroundColor: "#06c",
+    fontWeight: "600",
+    color: "#eaecee",
     "&:hover": {
       backgroundColor: "#88a2ce"
+    }
+  },
+  cancelNoteBtn: {
+    width: "100%",
+    height: "35px",
+    borderBottom: "1px solid #333",
+    borderRadius: "0px",
+    backgroundColor: "#e6e230",
+    color: "#333",
+    fontWeight: "600",
+    "&:hover": {
+      backgroundColor: "#dcd572"
     }
   },
   sidebarContainer: {
@@ -51,7 +64,11 @@ const styles = theme => ({
     width: "100%",
     backgroundColor: "#28787c",
     borderRadius: "0px",
-    color: "white"
+    color: "#eaecee",
+    fontWeight: "600",
+    "&:hover": {
+      backgroundColor: "#4f878a"
+    }
   }
 });
 

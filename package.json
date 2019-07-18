@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@wemake-services/eslint-config-javascript": "^0.3.0",
-    "babel-eslint": "^10.0.2",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-import": "^2.18.0",
