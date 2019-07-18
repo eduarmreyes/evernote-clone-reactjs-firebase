@@ -1,14 +1,17 @@
-export default function debounce(a, b, c) {
+export default function debounce(callback, timeItWillWait, c) {
   var d, e;
   return function() {
     function h() {
       d = null;
-      c || (e = a.apply(f, g));
+      c || (e = callback.apply(f, g));
     }
     var f = this,
       g = arguments;
     return (
-      clearTimeout(d), (d = setTimeout(h, b)), c && !d && (e = a.apply(f, g)), e
+      clearTimeout(d),
+      (d = setTimeout(h, timeItWillWait)),
+      c && !d && (e = callback.apply(f, g)),
+      e
     );
   };
 }

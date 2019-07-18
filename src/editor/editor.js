@@ -7,12 +7,32 @@ import debounce from "../helpers";
 import styles from "./styles";
 
 class EditorComponent extends React.Component {
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+    super();
+    this.state = {
+      text: "",
+      title: "",
+      id: ""
+    };
+  }
+
+  onUpdateBody = async valueOfBody => {
+    await this.setState({ text: valueOfBody });
+    this.onUpdate();
+  };
+
+  onUpdate = debounce(() => {
+    console.log("Updating DB");
+    //TODO: actually implement the code
+  }, 1500);
 
   render() {
-    return <h1>Hello from Editor</h1>;
+    const { classes } = this.props;
+    return (
+      <div className={classes.editorContainer}>
+        <ReactQuill value={this.state.text} onChange={this.onUpdateBody} />
+      </div>
+    );
   }
 }
 
