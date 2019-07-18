@@ -6,9 +6,10 @@ import { withStyles } from "@material-ui/core/styles";
 import SidebarItemComponent from "../sidebaritem/sidebaritem";
 
 import styles from "./styles";
+import Loading from "../loading/loading";
 import EmptyStateImage from "../images/undraw_add_content_d1tf.svg";
 import sidebaritem from "../sidebaritem/sidebaritem";
-import { emptyStatement } from "@babel/types";
+// import { emptyStatement } from "@babel/types";
 
 class SidebarComponent extends React.Component {
   constructor() {
@@ -37,7 +38,7 @@ class SidebarComponent extends React.Component {
   };
 
   onDeleteNote = () => {
-    console.log("Selected NOte");
+    console.log("Delete NOte");
   };
 
   render() {
@@ -76,7 +77,7 @@ class SidebarComponent extends React.Component {
                   _note={_note}
                   _index={_index}
                   selectedNoteIndex={selectedNoteIndex}
-                  selecteNote={this.onSelectNote}
+                  selectNote={this.onSelectNote}
                   deleteNote={this.onDeleteNote}
                 />
                 <Divider />
@@ -84,11 +85,10 @@ class SidebarComponent extends React.Component {
             );
           })}
         </List>
-        <h1>Hello from Sidebar</h1>
-        <SidebarItemComponent />
       </div>
     ) : (
       <div className={classes.sidebarContainerEmptyState}>
+        <Loading />
         <img
           src={EmptyStateImage}
           alt="Empty state showing a person holding a plus sign button to demonstrate this section will be update once people start adding notes"

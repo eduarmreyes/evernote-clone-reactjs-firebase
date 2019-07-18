@@ -8,12 +8,44 @@ import { removeHTMLTags } from "../helpers";
 import styles from "./styles";
 
 class SidebarItemComponent extends React.Component {
-  // constructor() {
-  //   super();
-  // }
-
+  onSelectNote = (_note, _index) => {
+    this.props.selectNote(_note, _index);
+  };
+  onDeleteNote = _note => {
+    if (window.confirm(`Are you sure you want to delete ${_note.title}?`)) {
+      this.props.deleteNote(_note);
+    }
+  };
   render() {
-    return <h1>Hello from SidebarItem</h1>;
+    const { _index, _note, classes, selectedNoteIndex } = this.props;
+    return (
+      <ListItem
+        className={classes.listItem}
+        selected={selectedNoteIndex === _index}
+        alignItems="flex-start"
+      >
+        <div
+          className={classes.textSection}
+          onClick={() => this.onSelectNote(_note, _index)}
+          onKeyPress={() => {
+            console.log("pressed");
+          }}
+          role="button"
+          tabIndex="0 "
+        >
+          <ListItemText
+            primary={_note.title}
+            secondary={removeHTMLTags(_note.body.substring(0, 30)) + "..."}
+          >
+            <p>textSection</p>
+          </ListItemText>
+        </div>
+        <DeleteIcon
+          onClick={() => this.onDeleteNote(_note)}
+          className={classes.deleteIcon}
+        />
+      </ListItem>
+    );
   }
 }
 
