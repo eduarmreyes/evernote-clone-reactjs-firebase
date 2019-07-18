@@ -45,9 +45,14 @@ const styles = theme => ({
     width: "300px",
     height: "100%",
     boxSizing: "border-box",
-    float: "left",
-    overflowY: "scroll",
-    overflowX: "hidden"
+    float: "left"
+  },
+  sidebarContainerEmptyState: {
+    marginTop: "40px",
+    width: "300px",
+    height: "100%",
+    boxSizing: "border-box",
+    float: "left"
   },
   newNoteInput: {
     width: "100%",

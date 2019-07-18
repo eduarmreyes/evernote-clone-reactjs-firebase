@@ -6,7 +6,9 @@ import { withStyles } from "@material-ui/core/styles";
 import SidebarItemComponent from "../sidebaritem/sidebaritem";
 
 import styles from "./styles";
+import EmptyStateImage from "../images/undraw_add_content_d1tf.svg";
 import sidebaritem from "../sidebaritem/sidebaritem";
+import { emptyStatement } from "@babel/types";
 
 class SidebarComponent extends React.Component {
   constructor() {
@@ -30,9 +32,17 @@ class SidebarComponent extends React.Component {
     console.log(this.state);
   };
 
+  onSelectNote = () => {
+    console.log("Selected NOte");
+  };
+
+  onDeleteNote = () => {
+    console.log("Selected NOte");
+  };
+
   render() {
     const { notes, classes, selectedNoteIndex } = this.props;
-    return (
+    return notes ? (
       <div className={classes.sidebarContainer}>
         <Button
           onClick={this.onButtonClick}
@@ -58,8 +68,32 @@ class SidebarComponent extends React.Component {
             </Button>
           </div>
         ) : null}
+        <List>
+          {notes.map((_note, _index) => {
+            return (
+              <div key={_index}>
+                <SidebarItemComponent
+                  _note={_note}
+                  _index={_index}
+                  selectedNoteIndex={selectedNoteIndex}
+                  selecteNote={this.onSelectNote}
+                  deleteNote={this.onDeleteNote}
+                />
+                <Divider />
+              </div>
+            );
+          })}
+        </List>
         <h1>Hello from Sidebar</h1>
         <SidebarItemComponent />
+      </div>
+    ) : (
+      <div className={classes.sidebarContainerEmptyState}>
+        <img
+          src={EmptyStateImage}
+          alt="Empty state showing a person holding a plus sign button to demonstrate this section will be update once people start adding notes"
+          width="300px "
+        />
       </div>
     );
   }
