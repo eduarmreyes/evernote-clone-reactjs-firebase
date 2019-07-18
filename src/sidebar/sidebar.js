@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import SidebarItemComponent from "../sidebaritem/sidebaritem";
 
 import styles from "./styles";
+import sidebaritem from "../sidebaritem/sidebaritem";
 
 class SidebarComponent extends React.Component {
   // constructor() {
@@ -13,7 +14,12 @@ class SidebarComponent extends React.Component {
   // }
 
   render() {
-    return <h1>Hello from Sidebar</h1>;
+    return (
+      <div>
+        <h1>Hello from Sidebar</h1>
+        <SidebarItemComponent />
+      </div>
+    );
   }
 }
 

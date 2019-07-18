@@ -1,5 +1,8 @@
 import React from "react";
 import firebase from "firebase";
+
+import SidebarCoponent from "./sidebar/sidebar";
+import EditorComponent from "./editor/editor";
 import "./App.css";
 
 class App extends React.Component {
@@ -24,7 +27,12 @@ class App extends React.Component {
   }
 
   render() {
-    return <h1>Hello </h1>;
+    return (
+      <div className="app-container">
+        <SidebarCoponent />
+        <EditorComponent />
+      </div>
+    );
   }
 }
 
