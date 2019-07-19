@@ -33,8 +33,8 @@ class SidebarComponent extends React.Component {
     console.log(this.state);
   };
 
-  onSelectNote = () => {
-    console.log("Selected NOte");
+  onSelectNote = (_note, _index) => {
+    this.props.onSelectNote(_note, _index);
   };
 
   onDeleteNote = () => {

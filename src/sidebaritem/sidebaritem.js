@@ -23,16 +23,14 @@ class SidebarItemComponent extends React.Component {
         className={classes.listItem}
         selected={selectedNoteIndex === _index}
         alignItems="flex-start"
+        onClick={() => this.onSelectNote(_note, _index)}
+        onKeyPress={() => {
+          console.log("pressed");
+        }}
+        role="button"
+        tabIndex="0 "
       >
-        <div
-          className={classes.textSection}
-          onClick={() => this.onSelectNote(_note, _index)}
-          onKeyPress={() => {
-            console.log("pressed");
-          }}
-          role="button"
-          tabIndex="0 "
-        >
+        <div className={classes.textSection}>
           <ListItemText
             primary={_note.title}
             secondary={removeHTMLTags(_note.body.substring(0, 30)) + "..."}
