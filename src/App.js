@@ -3,6 +3,7 @@ import firebase from "firebase";
 
 import SidebarCoponent from "./sidebar/sidebar";
 import EditorComponent from "./editor/editor";
+import EditorBlankStateImage from "./images/undraw_selection_92i4.svg";
 import "./App.css";
 
 class App extends React.Component {
@@ -40,7 +41,19 @@ class App extends React.Component {
           onSelectNote={this.onSelectNote}
           onNewNote={this.onNewNote}
         />
-        <EditorComponent />
+        {this.state.selectedNote ? (
+          <EditorComponent
+            selectedNote={this.state.selectedNote}
+            selectedNoteIndex={this.state.selectedNoteIndex}
+            notes={this.state.notes}
+          />
+        ) : (
+          <img
+            src={EditorBlankStateImage}
+            alt="A vector illustration showcasing a person in the middle and somewhat selected notes near this person"
+            width="600px"
+          />
+        )}
       </div>
     );
   }
