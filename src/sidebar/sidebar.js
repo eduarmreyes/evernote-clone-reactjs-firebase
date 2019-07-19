@@ -38,8 +38,8 @@ class SidebarComponent extends React.Component {
     this.props.onSelectNote(_note, _index);
   };
 
-  onDeleteNote = () => {
-    console.log("Delete NOte");
+  onDeleteNote = note => {
+    this.props.onDeleteNote(note);
   };
 
   render() {
@@ -78,8 +78,8 @@ class SidebarComponent extends React.Component {
                   _note={_note}
                   _index={_index}
                   selectedNoteIndex={selectedNoteIndex}
-                  selectNote={this.onSelectNote}
-                  deleteNote={this.onDeleteNote}
+                  onSelectNote={this.onSelectNote}
+                  onDeleteNote={this.onDeleteNote}
                 />
                 <Divider />
               </div>

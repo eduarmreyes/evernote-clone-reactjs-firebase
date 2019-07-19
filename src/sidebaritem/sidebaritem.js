@@ -9,11 +9,11 @@ import styles from "./styles";
 
 class SidebarItemComponent extends React.Component {
   onSelectNote = (_note, _index) => {
-    this.props.selectNote(_note, _index);
+    this.props.onSelectNote(_note, _index);
   };
   onDeleteNote = _note => {
     if (window.confirm(`Are you sure you want to delete ${_note.title}?`)) {
-      this.props.deleteNote(_note);
+      this.props.onDeleteNote(_note);
     }
   };
   render() {
