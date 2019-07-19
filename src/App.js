@@ -31,6 +31,10 @@ class App extends React.Component {
     this.setState({ selectedNoteIndex: index, selectedNote: note });
   };
 
+  onNoteUpdate = (id, noteObject) => {
+    console.log(id, noteObject);
+  };
+
   render() {
     return (
       <div className="app-container">
@@ -46,6 +50,7 @@ class App extends React.Component {
             selectedNote={this.state.selectedNote}
             selectedNoteIndex={this.state.selectedNoteIndex}
             notes={this.state.notes}
+            onNoteUpdate={this.onNoteUpdate}
           />
         ) : (
           <img
