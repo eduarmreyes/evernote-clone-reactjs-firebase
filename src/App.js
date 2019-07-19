@@ -32,7 +32,15 @@ class App extends React.Component {
   };
 
   onNoteUpdate = (id, noteObject) => {
-    console.log(id, noteObject);
+    firebase
+      .firestore()
+      .collection("notes")
+      .doc(id)
+      .update({
+        title: noteObject.title,
+        body: noteObject.body,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
   };
 
   render() {
